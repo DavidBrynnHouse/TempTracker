@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Physics Lab Temperatures</title>
+</head>
+<body>
+    <h1>Temperature Chart</h1>
+    <div class="center-container">
+        <form method="POST">
+            <label for="from_date">From date:</label>
+            <input type="date" id="from_date" name="from_date">
+            <br>
+            <label for="to_date">To date:</label>
+            <input type="date" id="to_date" name="to_date">
+            <br><br>
+            <label for="sensor">Select Sensor:</label>
+            <select id="sensor" name="sensor">
+                <option value="683648">Phys 307</option>
+                <option value="688393">Phys 306C</option>
+                <option value="688390">Phys 306B</option>
+                <option value="691448">Phys 406D</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <br>
+    <div class="chart-container">
+        {{ chart_html | safe }}
+    </div>
+</body>
+</html>
